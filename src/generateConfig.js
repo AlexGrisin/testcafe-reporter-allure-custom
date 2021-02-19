@@ -23,10 +23,10 @@ const generateConfig = function generateConfig (reporterConfig) {
             DESCRIPTION: reporterConfig.META && reporterConfig.META.DESCRIPTION || 'DESCRIPTION'
         },
         STORY_LABEL:     reporterConfig.STORY_LABEL || 'JIRA story link',
-        STORY_URL:       reporterConfig.STORY_URL || 'https://sweco-jira.advania.cloud/browse/{{ID}}',
-        VIDEO_PATH:      reporterConfig.VIDEO_PATH || 'Videos/',
-        REPORTS_PATH:    reporterConfig.REPORTS_PATH || 'Reports/',
-        SCREENSHOT_PATH: reporterConfig.SCREENSHOT_PATH || 'Screenshots/',
+        STORY_URL:       reporterConfig.STORY_URL || 'https://jira/browse/{{ID}}',
+        VIDEO_PATH:      reporterConfig.VIDEO_PATH || 'videos/',
+        REPORTS_PATH:    reporterConfig.REPORTS_PATH || 'reports/',
+        SCREENSHOT_PATH: reporterConfig.SCREENSHOT_PATH || 'screenshots/',
         labels:          {
             screenshotLabel:     reporterConfig.labels && reporterConfig.labels.screenshotLabel || 'Screenshot',
             videoLabel:          reporterConfig.labels && reporterConfig.labels.videoLabel || 'Video',
