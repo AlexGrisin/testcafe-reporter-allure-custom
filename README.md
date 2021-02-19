@@ -3,6 +3,10 @@
 
 This is the **allure-custom** reporter plugin for [TestCafe](http://devexpress.github.io/testcafe).
 
+This plugin extension was made because the original did not contain all the requirements for my project.
+This package is meant for personal project use and that is why you will see some specific meta-data, which fits my case the best. But of course you are free to use it for whatever you want.
+
+
 <p align="center">
     <img src="https://raw.github.com/AlexGrisin/testcafe-reporter-allure-custom/master/media/preview.png" alt="preview" />
 </p>
