@@ -145,7 +145,7 @@ exports['default'] = function () {
         },
         addJiraLinks: function addJiraLinks (meta) {
 
-            if (meta[allure.docAllureConfig.META.TEST_ID]) {
+            if (meta && meta[allure.docAllureConfig.META.TEST_ID]) {
                 const storyURL = allure.docAllureConfig.STORY_URL.replace('{{ID}}', meta[allure.docAllureConfig.META.TEST_ID]);
 
                 if (storyURL) 
@@ -212,7 +212,7 @@ exports['default'] = function () {
 
             this.addEnvironment();
             this.addFeatureInfo(meta, this.currentFixture.name);
-            allure.severity(meta[allure.docAllureConfig.META.SEVERITY]);
+            allure.severity(meta ? meta[allure.docAllureConfig.META.SEVERITY] : '');
             this.addJiraLinks(meta);
 
             var testEndTime = this.getTestEndTime(testRunInfo.durationMs, this.report.testStartTime);
