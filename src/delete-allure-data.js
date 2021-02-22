@@ -27,11 +27,12 @@ const deleteOnlyFiles = function deleteOnlyFiles (path) {
         fs.readdirSync(path).forEach(function (file) {
             const curPath = path + '/' + file;
 
-            if (fs.lstatSync(curPath).isDirectory()) 
+            if (file.match('categories.json'))
+                console.log('')
+            else if (fs.lstatSync(curPath).isDirectory())
                 deleteEntireDirectory(curPath);
-            else 
+            else
                 fs.unlinkSync(curPath);
-      
         });
     }
 };
@@ -48,7 +49,7 @@ const deleteAllureData = function deleteAllureData (appRootPath, allureConfig) {
             deleteEntireDirectory(reportDir);
     
         if (fs.existsSync(resultDir)) 
-            deleteEntireDirectory(resultDir);
+            deleteOnlyFiles(resultDir);
     
     }
 };
