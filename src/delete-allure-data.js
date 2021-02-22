@@ -28,7 +28,7 @@ const deleteOnlyFiles = function deleteOnlyFiles (path) {
             const curPath = path + '/' + file;
 
             if (file.match('categories.json'))
-                console.log('')
+                console.log('');
             else if (fs.lstatSync(curPath).isDirectory())
                 deleteEntireDirectory(curPath);
             else
