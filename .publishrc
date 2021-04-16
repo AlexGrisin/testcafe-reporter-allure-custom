@@ -1,0 +1,4 @@
+{
+    "validateGitTag":   false,
+    "validateBranch":   "main"
+}
