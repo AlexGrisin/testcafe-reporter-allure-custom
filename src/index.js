@@ -191,6 +191,11 @@ exports['default'] = function () {
 
             if (LOCALE) 
                 allure.addArgument(labels.localeLabel, LOCALE);
+
+            const CHANNEL = meta && meta[allure.docAllureConfig.META.CHANNEL];
+
+            if (CHANNEL) 
+                allure.addArgument(labels.channelLabel, CHANNEL);
       
             MODULE = this.currentFixture.meta && this.currentFixture.meta[allure.docAllureConfig.META.MODULE];
             if (!MODULE) 

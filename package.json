@@ -1,6 +1,6 @@
 {
   "name": "testcafe-reporter-allure-custom",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "allure-custom TestCafe reporter plugin.",
   "repository": "https://github.com/AlexGrisin/testcafe-reporter-allure-custom",
   "author": {
