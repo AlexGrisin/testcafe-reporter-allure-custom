@@ -124,12 +124,13 @@ exports['default'] = function () {
             }
         },
         addVideo: function addVideo (name) {
+            name = name.replace(/(?:\r\n|\r|\n)/g, '');
+            name = name.replace(/:/g, '');
+
             try {
                 const videoOutput = allure.docAllureConfig.VIDEO_PATH;
                 const path1 = path.resolve(videoOutput);
-                const dirs = fs.readdirSync(path1);
-                const last = dirs[dirs.length - 1];
-                const path2 = path.join(path1, `${last}`, `${name}`);
+                const path2 = path.join(path1, `${name}`);
                 const videoPath = path.join(path2, '1.mp4');
 
                 if (videoPath && fs.existsSync(videoPath)) {
