@@ -130,8 +130,7 @@ exports['default'] = function () {
                 const dirs = fs.readdirSync(path1);
                 const last = dirs[dirs.length - 1];
                 const path2 = path.join(path1, `${last}`, `${name}`);
-                const userAgent = this.report.userAgents[0].replace(' / ', '_').replace(' ', '_').replace(' ', '_');
-                const videoPath = path.join(path2, userAgent, '1.mp4');
+                const videoPath = path.join(path2, '1.mp4');
 
                 if (videoPath && fs.existsSync(videoPath)) {
                     const video = fs.readFileSync(videoPath);
@@ -266,6 +265,8 @@ exports['default'] = function () {
                 const testCafeErrorObject = testRunInfo.errs[0];
 
                 this.addScreenshot(testCafeErrorObject.screenshotPath);
+                this.addVideo(name);
+
                 let testStatus = testStatusConfig.failed;
 
                 if (errorName !== errorConfig.assertionError) 
