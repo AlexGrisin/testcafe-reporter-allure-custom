@@ -1,4 +1,7 @@
 {
-    "validateGitTag":   false,
-    "validateBranch":   "main"
+    "validations": {
+        "uncommittedChanges": false,
+        "gitTag": false,
+        "branch": "main"
+    }
 }
