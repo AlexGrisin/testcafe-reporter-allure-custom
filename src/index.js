@@ -51,7 +51,7 @@ const testStatusConfig = {
     skipped:  'skipped',
     failed:   'failed',
     broken:   'failed',
-    unstable: 'passed'
+    unstable: 'unstable'
 };
 
 exports['default'] = function () {
