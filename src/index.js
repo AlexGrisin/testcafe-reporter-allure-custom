@@ -20,7 +20,7 @@ global.allure = new Runtime(allureReporter);
 let reporterConfig;
 
 try {
-  reporterConfig = require(appRoot.path + '/doc-allure-config');
+  reporterConfig = require(`${process.env.PWD}/doc-allure-config`);
 } catch (err) {
   reporterConfig = {};
 }
