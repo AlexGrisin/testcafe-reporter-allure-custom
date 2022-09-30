@@ -202,6 +202,20 @@ exports['default'] = function () {
     reportTestStart: function reportTestStart(name, meta) {
       this.report.testStartTime = Date.now();
     },
+    quarantineErrors: function quarantineErrors(testRunInfo) {
+      let runId = 0;
+      let quarantineErrors = '\n';
+      if (testRunInfo.quarantine && Object.keys(testRunInfo.quarantine).length > 0) {
+        Object.keys(testRunInfo.quarantine).forEach(k => {
+          const error = testRunInfo.quarantine[k].errors;
+          if (!testRunInfo.quarantine[k].passed && error) {
+            quarantineErrors += `\nRun ${++runId}: Failed - ${error[0].errMsg}`;
+          }
+        });
+      }
+      console.log(quarantineErrors);
+      return quarantineErrors;
+    },
     reportTestDone: function reportTestDone(name, testRunInfo, meta) {
       const _this = this;
 
@@ -219,6 +233,8 @@ exports['default'] = function () {
         return _this.formatError(err);
       });
 
+      let quarantineErrors = this.quarantineErrors(testRunInfo);
+
       if (testRunInfo.skipped) {
         const testInfo = {
           message: errorConfig.testSkipMessage,
@@ -229,7 +245,7 @@ exports['default'] = function () {
       } else if (testRunInfo.unstable) {
         const testInfo = {
           message: errorConfig.testUnstableMessage,
-          stack: 'no error',
+          stack: quarantineErrors || 'no error',
         };
 
         allureReporter.endCase(testStatusConfig.unstable, testInfo, testEndTime);
